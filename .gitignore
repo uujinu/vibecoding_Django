@@ -36,6 +36,10 @@ MANIFEST
 *.sqlite3
 db.sqlite3
 
+# Static files
+staticfiles/
+static/
+
 # Pytest
 .cache/
 
