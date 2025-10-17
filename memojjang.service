@@ -1,0 +1,19 @@
+[Unit]
+Description=Memojjang Gunicorn daemon
+After=network.target
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/path/to/vibecoding_Django
+Environment="PATH=/path/to/vibecoding_Django/venv/bin"
+EnvironmentFile=/path/to/vibecoding_Django/.env
+ExecStart=/path/to/vibecoding_Django/venv/bin/gunicorn \
+          -c /path/to/vibecoding_Django/gunicorn.conf.py \
+          memojjang.wsgi:application
+
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
